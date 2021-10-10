@@ -72,14 +72,13 @@ public class FPSController : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        // Move the controller
+        // Set animations based on movement
         if(moveDirection.x != 0 || moveDirection.z != 0) {
-            Debug.Log("Moving");
             animator.SetBool("Movement", true);
         } else {
-            // Debug.Log("Not moving");
             animator.SetBool("Movement", false);
         }
+        // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
         updateStamina(isRunning);
 
